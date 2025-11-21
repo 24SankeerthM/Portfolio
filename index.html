@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sankeerth M — Portfolio</title>
+
+  <script>
+    (function(){
+      try {
+        var saved = localStorage.getItem('theme');
+        if (saved === 'light') document.documentElement.classList.add('light');
+        else if (saved === 'dark') document.documentElement.classList.remove('light');
+        else {
+          var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+          if (prefersLight) document.documentElement.classList.add('light');
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="topnav" id="topnav">
+    <div class="brand">Sankeerth M</div>
+
+    <nav class="navlinks" id="navlinks" aria-label="Main Navigation">
+      <a href="#home">Home</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Things I’ve Built</a>
+      <a href="#certs">Certifications</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark">🌙</button>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div class="hero-inner container">
+        <div class="eyebrow">AIML Student • BNM Institute of Technology</div>
+        <h1 class="hero-title"><span class="first">Sankeerth</span> <span class="last">M</span></h1>
+        <p class="hero-sub">Building approachable ML-driven web apps — learning AI/ML, data, and full-stack tooling.</p>
+
+        <div class="cta-row">
+          <a class="btn outline" href="https://github.com/24SankeerthM" target="_blank">GitHub</a>
+          <a class="btn filled" href="https://www.linkedin.com/in/sankeerth-m-64346333b/" target="_blank">LinkedIn</a>
+          <a class="btn gradient" href="resume.pdf" target="_blank">View Resume</a>
+          <a class="btn ghost" href="#projects">Things I’ve Built</a>
+        </div>
+
+        <div class="hero-contact">
+          <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a> • <a href="tel:+918088381277">+91 80883 81277</a>
+        </div>
+      </div>
+      <div class="hero-accent"></div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section section--pad reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Skills & Technologies</span>
+          <h2>My Tech Stack</h2>
+          <p class="muted">Technologies I use regularly to design, develop and deploy my work.</p>
+        </div>
+
+        <div class="grid skills-grid">
+          <div class="card">
+            <div class="card-head"><div class="icon">🌐</div><h3>Frontend</h3></div>
+            <ul class="mini-list">
+              <li>React.js</li>
+              <li>Next.js</li>
+              <li>HTML</li>
+              <li>CSS</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div class="icon">🧩</div><h3>Backend</h3></div>
+            <ul class="mini-list">
+              <li>Node.js</li>
+              <li>APIs</li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div class="icon">💾</div><h3>Database</h3></div>
+            <ul class="mini-list">
+              <li>MySQL</li>
+              <li>SQLite</li>
+              <li>Excel</li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div class="icon">🧠</div><h3>Languages</h3></div>
+            <ul class="mini-list">
+              <li>JavaScript</li>
+              <li>Python</li>
+              <li>C</li>
+              <li>C++</li>
+              <li></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div class="icon">🔧</div><h3>Tools & Others</h3></div>
+            <ul class="mini-list">
+              <li>Git • GitHub</li>
+              <li>Figma</li>
+              <li>OpenCV</li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-head"><div class="icon">☁️</div><h3>Hosting</h3></div>
+            <ul class="mini-list">
+              <li>Vercel</li>
+              <li>Azure</li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section dark-bg reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Portfolio</span>
+          <h2>Things I’ve Built</h2>
+          <p class="muted">Small descriptions + links. Click any project to view source.</p>
+        </div>
+
+        <div class="grid project-grid">
+
+          <!-- PROJECT 1 -->
+          <article class="project-card">
+            <div class="project-thumb" style="background-image:url('/mnt/data/3a4d2ed5-851c-4109-9d06-3ae465c2f148.png');"></div>
+            <div class="project-body">
+              <h3>Smart Notes (Demo)</h3>
+              <p>A notes app with keyword search + simple NLP tagging. Built using React & Flask.</p>
+
+              <!-- ONLY CODE BUTTON -->
+              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 Code</a>
+
+
+              <!-- TECH TAGS -->
+              <div class="tech-tags">
+                <span class="tag">React</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Python</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 2 -->
+          <article class="project-card">
+            <div class="project-thumb gradient-thumb"></div>
+            <div class="project-body">
+              <h3>Image Classifier</h3>
+              <p>Trained a small CNN to classify 5 classes; integrated with a Flask API.</p>
+
+              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 Code</a>
+
+
+              <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">PyTorch</span>
+                <span class="tag">CNN</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Pandas</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PROJECT 3 -->
+          <article class="project-card">
+            <div class="project-thumb pattern-thumb"></div>
+            <div class="project-body">
+              <h3>Music Player Web</h3>
+              <p>Playlist, favorites, playable tracks with login & email notifications.</p>
+
+              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 Code</a>
+
+
+              <div class="tech-tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">MongoDB</span>
+                <span class="tag">Express</span>
+                <span class="tag">React</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+<section id="certs" class="section reveal">
+  <div class="container">
+
+    <div class="section-head">
+      <span class="kicker">Learning</span>
+      <h2>Certifications</h2>
+      <p class="muted">Relevant certificates and courses.</p>
+    </div>
+
+    <div class="certs-row">
+
+      <div class="cert">
+        <div class="cert-badge">🎓</div>
+        <div>
+          <strong>Intro to ML</strong>
+          <span class="muted"> — Coursera</span>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="cert-badge">🎓</div>
+        <div>
+          <strong>PROGRAMMING USING C++</strong>
+          <span class="muted"> — Infosys Springboard</span>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="cert-badge">🎓</div>
+        <div>
+          <strong>Figma</strong>
+          <span class="muted"> — SIGGRAPH BNMIT</span>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="cert-badge">⚙️</div>
+        <div>
+          <strong>Python for Data Science</strong>
+          <span class="muted"> — IBM</span>
+        </div>
+      </div>
+
+      <div class="cert">
+        <div class="cert-badge">🌐</div>
+        <div>
+          <strong>Web Dev Fundamentals</strong>
+          <span class="muted"> — FreeCodeCamp</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section reveal">
+      <div class="container about-grid">
+        <div class="about-text">
+          <h2>About</h2>
+          <p>Hi — I'm Sankeerth, an AIML student at BNM Institute of Technology, Bangalore. I like building small projects that teach me ML and web fundamentals. I enjoy turning ideas into working demos quickly, learning from each iteration.</p>
+          <p class="muted">Email: <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a> • Phone: <a href="tel:+918088381277">+91 80883 81277</a></p>
+        </div>
+        <div class="about-stats">
+          <div class="stat">
+            <div class="big">3+</div>
+            <div class="label">Projects</div>
+          </div>
+          <div class="stat">
+            <div class="big">4+</div>
+            <div class="label">Certificate Tracks</div>
+          </div>
+          <div class="stat">
+            <div class="big">AIML</div>
+            <div class="label">Field</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section dark-bg reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Get in touch</span>
+          <h2>Contact</h2>
+        </div>
+
+        <div class="contact-grid">
+          <div>
+            <p>Email: <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a></p>
+            <p>Phone: <a href="tel:+918088381277">+91 80883 81277</a></p>
+            <p class="muted">Prefer email? Send a short message and I’ll get back to you.</p>
+          </div>
+
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">© <span id="year"></span> Sankeerth M — Built with HTML, CSS & JS</div>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
