@@ -1,108 +1,107 @@
-// script.js — theme toggle, nav, reveal, scroll spy, contact demo
-(function(){
-  // Wait for DOM ready
-  document.addEventListener('DOMContentLoaded', function(){
-    var docEl = document.documentElement; // <html>
+// script.js — theme, nav, scroll reveal, scroll spy, contact demo
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var docEl = document.documentElement;
     var toggleBtn = document.getElementById('theme-toggle');
     var navToggle = document.getElementById('nav-toggle');
     var navlinks = document.getElementById('navlinks');
+    var header = document.getElementById('topnav');
 
-    // Helper: update toggle UI
     function updateToggleUI(isLight) {
       if (!toggleBtn) return;
-      toggleBtn.setAttribute('aria-pressed', isLight ? 'true' : 'false');
       toggleBtn.textContent = isLight ? '☀️' : '🌙';
-      try {
-        toggleBtn.animate([{ transform: 'scale(.96)' }, { transform: 'scale(1)' }], { duration: 160 });
-      } catch(e) { /* animation optional */ }
     }
 
-    // Initialize toggle UI from current class
-    var isLightNow = docEl.classList.contains('light');
-    updateToggleUI(isLightNow);
+    updateToggleUI(docEl.classList.contains('light'));
 
-    // Theme toggle handler
+    // theme toggle
     if (toggleBtn) {
-      toggleBtn.addEventListener('click', function(){
+      toggleBtn.addEventListener('click', function () {
         var willBeLight = !docEl.classList.contains('light');
-        if (willBeLight) docEl.classList.add('light');
-        else docEl.classList.remove('light');
-        try { localStorage.setItem('theme', willBeLight ? 'light' : 'dark'); } catch(e) { /* ignore */ }
+        docEl.classList.toggle('light', willBeLight);
+        try { localStorage.setItem('theme', willBeLight ? 'light' : 'dark'); } catch (e) {}
         updateToggleUI(willBeLight);
       });
     }
 
-    // Mobile nav toggle
+    // mobile nav
     if (navToggle && navlinks) {
-      navToggle.addEventListener('click', function(e){
+      navToggle.addEventListener('click', function (e) {
         e.stopPropagation();
-        var shown = navlinks.style.display === 'flex';
-        navlinks.style.display = shown ? 'none' : 'flex';
+        navlinks.style.display = navlinks.style.display === 'flex' ? 'none' : 'flex';
       });
 
-      document.addEventListener('click', function(ev){
-        if (window.innerWidth < 1000) {
-          if (!navlinks.contains(ev.target) && ev.target !== navToggle) {
-            navlinks.style.display = 'none';
-          }
+      document.addEventListener('click', function (ev) {
+        if (window.innerWidth < 900 &&
+            !navlinks.contains(ev.target) &&
+            ev.target !== navToggle) {
+          navlinks.style.display = 'none';
+        }
+      });
+
+      navlinks.addEventListener('click', function (ev) {
+        if (ev.target.tagName === 'A' && window.innerWidth < 900) {
+          navlinks.style.display = 'none';
         }
       });
     }
 
-    // IntersectionObserver reveal on scroll
-    (function(){
+    // reveal on scroll
+    (function () {
+      var items = document.querySelectorAll('.reveal');
       if (!('IntersectionObserver' in window)) {
-        // fallback: just show all
-        var reveals = document.querySelectorAll('.reveal');
-        for (var i = 0; i < reveals.length; i++) reveals[i].classList.add('is-visible');
+        items.forEach(function (el) { el.classList.add('is-visible'); });
         return;
       }
-      var obs = new IntersectionObserver(function(entries){
-        for (var i = 0; i < entries.length; i++) {
-          var e = entries[i];
-          if (e.isIntersecting) {
-            e.target.classList.add('is-visible');
-            obs.unobserve(e.target);
+
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
           }
-        }
-      }, { threshold: 0.12 });
-      var els = document.querySelectorAll('.reveal');
-      for (var k = 0; k < els.length; k++) obs.observe(els[k]);
+        });
+      }, { threshold: 0.18 });
+
+      items.forEach(function (el) { obs.observe(el); });
     })();
 
-    // Scroll spy to mark active nav item
-    (function(){
+    // scroll spy + header style + tiny parallax
+    (function () {
       var sections = document.querySelectorAll('main section[id]');
-      var navAnchors = document.querySelectorAll('.navlinks a');
-      function onScroll(){
-        var pos = window.scrollY + window.innerHeight * 0.35;
-        for (var i = 0; i < sections.length; i++) {
-          var s = sections[i];
-          if (pos >= s.offsetTop && pos < s.offsetTop + s.offsetHeight) {
-            for (var j = 0; j < navAnchors.length; j++) navAnchors[j].classList.remove('active');
-            var link = document.querySelector('.navlinks a[href="#' + s.id + '"]');
-            if (link) link.classList.add('active');
-          }
+      var links = document.querySelectorAll('.navlinks a');
+
+      function onScroll() {
+        var y = window.scrollY || window.pageYOffset;
+
+        if (header) {
+          if (y > 20) header.classList.add('scrolled');
+          else header.classList.remove('scrolled');
         }
+
+        var pos = y + window.innerHeight * 0.35;
+        sections.forEach(function (sec) {
+          if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
+            links.forEach(function (l) { l.classList.remove('active'); });
+            var active = document.querySelector('.navlinks a[href="#' + sec.id + '"]');
+            if (active) active.classList.add('active');
+          }
+        });
       }
+
       window.addEventListener('scroll', onScroll, { passive: true });
       onScroll();
     })();
 
-    // Contact form demo (no backend)
+    // contact form demo
     var form = document.getElementById('contact-form');
     if (form) {
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        var nameInput = form.elements['name'];
-        var nameVal = (nameInput && nameInput.value) ? nameInput.value : 'there';
-        alert('Thanks ' + nameVal + '! This demo contact form does not send email yet.');
-        form.reset();
-      });
+
     }
 
-    // Set year in footer
+    // footer year
     var yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   });
 })();
+

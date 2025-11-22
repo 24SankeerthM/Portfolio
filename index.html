@@ -5,16 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sankeerth M — Portfolio</title>
 
+  <!-- theme bootstrap -->
   <script>
-    (function(){
+    (function () {
       try {
         var saved = localStorage.getItem('theme');
         if (saved === 'light') document.documentElement.classList.add('light');
-        else if (saved === 'dark') document.documentElement.classList.remove('light');
-        else {
-          var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-          if (prefersLight) document.documentElement.classList.add('light');
-        }
       } catch (e) {}
     })();
   </script>
@@ -24,6 +20,7 @@
 </head>
 <body>
 
+  <!-- HEADER -->
   <header class="topnav" id="topnav">
     <div class="brand">Sankeerth M</div>
 
@@ -48,8 +45,13 @@
     <section id="home" class="hero">
       <div class="hero-inner container">
         <div class="eyebrow">AIML Student • BNM Institute of Technology</div>
-        <h1 class="hero-title"><span class="first">Sankeerth</span> <span class="last">M</span></h1>
-        <p class="hero-sub">Building approachable ML-driven web apps — learning AI/ML, data, and full-stack tooling.</p>
+        <h1 class="hero-title">
+          <span class="first">Sankeerth</span>
+          <span class="last">M</span>
+        </h1>
+        <p class="hero-sub">
+          I build small, clean projects around AI, ML and the web — learning one experiment at a time.
+        </p>
 
         <div class="cta-row">
           <a class="btn outline" href="https://github.com/24SankeerthM" target="_blank">GitHub</a>
@@ -59,19 +61,19 @@
         </div>
 
         <div class="hero-contact">
-          <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a> • <a href="tel:+918088381277">+91 80883 81277</a>
+          <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a> •
+          <a href="tel:+918088381277">+91 80883 81277</a>
         </div>
       </div>
-      <div class="hero-accent"></div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills" class="section section--pad reveal">
+    <section id="skills" class="section reveal">
       <div class="container">
         <div class="section-head">
           <span class="kicker">Skills & Technologies</span>
           <h2>My Tech Stack</h2>
-          <p class="muted">Technologies I use regularly to design, develop and deploy my work.</p>
+          <p class="muted">Things I use to design, develop and ship.</p>
         </div>
 
         <div class="grid skills-grid">
@@ -90,10 +92,6 @@
             <ul class="mini-list">
               <li>Node.js</li>
               <li>APIs</li>
-              <li></li>
-              <li></li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
 
@@ -103,8 +101,6 @@
               <li>MySQL</li>
               <li>SQLite</li>
               <li>Excel</li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
 
@@ -115,7 +111,6 @@
               <li>Python</li>
               <li>C</li>
               <li>C++</li>
-              <li></li>
             </ul>
           </div>
 
@@ -125,8 +120,6 @@
               <li>Git • GitHub</li>
               <li>Figma</li>
               <li>OpenCV</li>
-              <li></li>
-              <li></li>
             </ul>
           </div>
 
@@ -135,7 +128,6 @@
             <ul class="mini-list">
               <li>Vercel</li>
               <li>Azure</li>
-              <li></li>
             </ul>
           </div>
         </div>
@@ -143,12 +135,12 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section dark-bg reveal">
+    <section id="projects" class="section section-alt reveal">
       <div class="container">
         <div class="section-head">
           <span class="kicker">Portfolio</span>
           <h2>Things I’ve Built</h2>
-          <p class="muted">Small descriptions + links. Click any project to view source.</p>
+          <p class="muted">Quick descriptions and links to the code.</p>
         </div>
 
         <div class="grid project-grid">
@@ -158,13 +150,8 @@
             <div class="project-thumb" style="background-image:url('/mnt/data/3a4d2ed5-851c-4109-9d06-3ae465c2f148.png');"></div>
             <div class="project-body">
               <h3>Smart Notes (Demo)</h3>
-              <p>A notes app with keyword search + simple NLP tagging. Built using React & Flask.</p>
-
-              <!-- ONLY CODE BUTTON -->
-              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 Code</a>
-
-
-              <!-- TECH TAGS -->
+              <p>A notes app with keyword search and simple NLP tagging built using React & Flask.</p>
+              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 View Code</a>
               <div class="tech-tags">
                 <span class="tag">React</span>
                 <span class="tag">Flask</span>
@@ -178,17 +165,13 @@
             <div class="project-thumb gradient-thumb"></div>
             <div class="project-body">
               <h3>Image Classifier</h3>
-              <p>Trained a small CNN to classify 5 classes; integrated with a Flask API.</p>
-
-              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 Code</a>
-
-
+              <p>A small CNN that predicts 5 classes, wrapped with a Flask API for easy testing.</p>
+              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 View Code</a>
               <div class="tech-tags">
                 <span class="tag">Python</span>
                 <span class="tag">PyTorch</span>
                 <span class="tag">CNN</span>
                 <span class="tag">NumPy</span>
-                <span class="tag">Pandas</span>
               </div>
             </div>
           </article>
@@ -198,11 +181,8 @@
             <div class="project-thumb pattern-thumb"></div>
             <div class="project-body">
               <h3>Music Player Web</h3>
-              <p>Playlist, favorites, playable tracks with login & email notifications.</p>
-
-              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 Code</a>
-
-
+              <p>Music player with playlists, favourites, playback, login and email notifications.</p>
+              <a class="btn-code" href="YOUR_GITHUB_LINK_HERE" target="_blank">💻 View Code</a>
               <div class="tech-tags">
                 <span class="tag">Node.js</span>
                 <span class="tag">MongoDB</span>
@@ -217,109 +197,155 @@
     </section>
 
     <!-- CERTIFICATIONS -->
-<section id="certs" class="section reveal">
-  <div class="container">
+    <section id="certs" class="section reveal">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Learning</span>
+          <h2>Certifications</h2>
+          <p class="muted">Courses and trainings I’ve completed.</p>
+        </div>
 
-    <div class="section-head">
-      <span class="kicker">Learning</span>
-      <h2>Certifications</h2>
-      <p class="muted">Relevant certificates and courses.</p>
-    </div>
+        <div class="certs-row">
+          <div class="cert">
+            <div class="cert-badge">🎓</div>
+            <div><strong>Intro to ML</strong><span class="muted"> — Coursera</span></div>
+          </div>
 
-    <div class="certs-row">
+          <div class="cert">
+            <div class="cert-badge">🎓</div>
+            <div><strong>PROGRAMMING USING C++</strong><span class="muted"> — Infosys Springboard</span></div>
+          </div>
 
-      <div class="cert">
-        <div class="cert-badge">🎓</div>
-        <div>
-          <strong>Intro to ML</strong>
-          <span class="muted"> — Coursera</span>
+          <div class="cert">
+            <div class="cert-badge">🎓</div>
+            <div><strong>Figma</strong><span class="muted"> — SIGGRAPH BNMIT</span></div>
+          </div>
+
+          <div class="cert">
+            <div class="cert-badge">⚙️</div>
+            <div><strong>Python for Data Science</strong><span class="muted"> — IBM</span></div>
+          </div>
+
+          <div class="cert">
+            <div class="cert-badge">🌐</div>
+            <div><strong>Web Dev Fundamentals</strong><span class="muted"> — FreeCodeCamp</span></div>
+          </div>
         </div>
       </div>
-
-      <div class="cert">
-        <div class="cert-badge">🎓</div>
-        <div>
-          <strong>PROGRAMMING USING C++</strong>
-          <span class="muted"> — Infosys Springboard</span>
-        </div>
-      </div>
-
-      <div class="cert">
-        <div class="cert-badge">🎓</div>
-        <div>
-          <strong>Figma</strong>
-          <span class="muted"> — SIGGRAPH BNMIT</span>
-        </div>
-      </div>
-
-      <div class="cert">
-        <div class="cert-badge">⚙️</div>
-        <div>
-          <strong>Python for Data Science</strong>
-          <span class="muted"> — IBM</span>
-        </div>
-      </div>
-
-      <div class="cert">
-        <div class="cert-badge">🌐</div>
-        <div>
-          <strong>Web Dev Fundamentals</strong>
-          <span class="muted"> — FreeCodeCamp</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
+    </section>
 
     <!-- ABOUT -->
     <section id="about" class="section reveal">
       <div class="container about-grid">
         <div class="about-text">
           <h2>About</h2>
-          <p>Hi — I'm Sankeerth, an AIML student at BNM Institute of Technology, Bangalore. I like building small projects that teach me ML and web fundamentals. I enjoy turning ideas into working demos quickly, learning from each iteration.</p>
-          <p class="muted">Email: <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a> • Phone: <a href="tel:+918088381277">+91 80883 81277</a></p>
+          <p>
+            I'm an AIML student at BNM Institute of Technology, Bangalore. I like building small, focused projects that
+            teach me something new about ML or the modern web stack.
+          </p>
+          <p>
+            Right now I'm experimenting with ML models, simple APIs and front-ends that are clean and easy to use.
+          </p>
+          <p class="muted">
+            Email:
+            <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a> •
+            Phone:
+            <a href="tel:+918088381277">+91 80883 81277</a>
+          </p>
         </div>
         <div class="about-stats">
-          <div class="stat">
-            <div class="big">3+</div>
-            <div class="label">Projects</div>
-          </div>
-          <div class="stat">
-            <div class="big">4+</div>
-            <div class="label">Certificate Tracks</div>
-          </div>
-          <div class="stat">
-            <div class="big">AIML</div>
-            <div class="label">Field</div>
-          </div>
+          <div class="stat"><div class="big">3+</div><div class="label">Projects</div></div>
+          <div class="stat"><div class="big">4+</div><div class="label">Certificate Tracks</div></div>
+          <div class="stat"><div class="big">AIML</div><div class="label">Field</div></div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section dark-bg reveal">
+    <section id="contact" class="section section-alt reveal">
       <div class="container">
         <div class="section-head">
-          <span class="kicker">Get in touch</span>
-          <h2>Contact</h2>
+          <span class="kicker">Let’s talk</span>
+          <h2>Send me a message</h2>
+          <p class="muted">Idea, project or internship? Drop a quick message here.</p>
         </div>
 
         <div class="contact-grid">
-          <div>
-            <p>Email: <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a></p>
-            <p>Phone: <a href="tel:+918088381277">+91 80883 81277</a></p>
-            <p class="muted">Prefer email? Send a short message and I’ll get back to you.</p>
+          <!-- form -->
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" id="contact-form">
+
+    <!-- REQUIRED: Your Web3Forms access key -->
+    <input type="hidden" name="access_key" value="2bd3e2ad-5e5f-4809-9b04-9142b998f4e6">
+
+    <!-- OPTIONAL: Email subject -->
+    <input type="hidden" name="subject" value="New Message From Your Portfolio">
+
+    <!-- OPTIONAL: Reply-to -->
+    <input type="hidden" name="replyto" value="%email%">
+
+    <div class="form-field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" placeholder="Your name" required />
+    </div>
+
+    <div class="form-field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="your.email@example.com" required />
+    </div>
+
+    <div class="form-field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="4" placeholder="Tell me about your project, idea or question." required></textarea>
+    </div>
+
+    <button type="submit" class="btn primary full">✉️ Send Message</button>
+
+    <p class="form-note muted">Your message will be sent directly to my Gmail 📩</p>
+</form>
+
+
+          <!-- info -->
+          <div class="contact-side">
+            <div class="card contact-card">
+              <div class="contact-row">
+                <div class="contact-icon">📧</div>
+                <div>
+                  <div class="contact-label">Email</div>
+                  <a href="mailto:sankeerthm2020@gmail.com">sankeerthm2020@gmail.com</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon">📱</div>
+                <div>
+                  <div class="contact-label">Phone</div>
+                  <a href="tel:+918088381277">+91 80883 81277</a>
+                </div>
+              </div>
+              <div class="contact-row">
+                <div class="contact-icon">📍</div>
+                <div>
+                  <div class="contact-label">Location</div>
+                  <span class="muted">Bengaluru, India</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card contact-links">
+              <div class="contact-links-head">Connect</div>
+              <div class="contact-pill-row">
+                <a href="https://github.com/24SankeerthM" target="_blank" class="contact-pill">GitHub</a>
+                <a href="https://www.linkedin.com/in/sankeerth-m-64346333b/" target="_blank" class="contact-pill">LinkedIn</a>
+                <a href="mailto:sankeerthm2020@gmail.com" class="contact-pill">Email</a>
+              </div>
+            </div>
+
+
           </div>
-
-
-          </form>
         </div>
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container">© <span id="year"></span> Sankeerth M — Built with HTML, CSS & JS</div>
     </footer>
